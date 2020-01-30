@@ -16,7 +16,7 @@ dev = InputDevice('/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd')
 url = 'http://192.168.0.10/datastore/mix/chan/2/matrix/fader'
 t =  time.time()
 while True:
-   r,w,x = select([dev], [], [])
+   r, w, x = select([dev], [], [])
    for event in dev.read():
         print(event, time.time()-t)
         if (time.time() - t) > 0.15 and event.type==1 and (event.value==1 or event.value==2):
